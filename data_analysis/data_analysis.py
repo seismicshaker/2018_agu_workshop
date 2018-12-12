@@ -28,18 +28,10 @@ def download_data(place):
 
 
 #Define processing functions
-def moving_avgerage(data, width):
+def moving_average(data, width):
     moving_avg = np.full(data.size, np.nan)
     for i in range(width, moving_avg.size - width):
         moving_avg[i] = np.mean(data[i - width:i + width])
     return moving_avg
-
-
-#Define test for moving_avgerage
-def test_moving_avg():
-    a = moving_avgerage(np.ones(10),4)
-    assert np.all(np.isnan(a[:2]))
-    assert np.all(np.isnan(a[-2:]))
-    assert np.allclose(a[4:-4], 1)
 
 
