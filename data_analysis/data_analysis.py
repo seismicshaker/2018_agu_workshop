@@ -8,11 +8,18 @@ import requests
 
 #Define loading functions
 def generate_URL(place):
+    """
+    This function will generate the string of the URL to access the temperature data
+
+    :param place: Location of temperature time series
+    """
     url = f'http://berkeleyearth.lbl.gov/auto/Regional/TAVG/Text/{place.lower()}-TAVG-Trend.txt'
     return url
 
 def download_data(place):
-    # Download the content of the URL
+    """
+    This function will download the content of the URL 
+    """
     url = generate_URL(place)
     response = requests.get(url)
 
